@@ -1,160 +1,185 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML5 Web Storage</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 Web Storage</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="./css/styles.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./css/styles.css">
 
-    <script>
-      if(localStorage.getItem("session")){
-        location.href = "index.html"
-      }
-    </script>
+  <script>
+    if (localStorage.getItem("session")) {
+      location.href = "index.html"
+    }
+  </script>
 </head>
 
 <body class="body-login">
-    
-    <div class="card py-4 px-5">
 
-      <div class="logo d-flex justify-content-center align-items-center mb-4">
+  <div class="card py-4 px-5">
+
+    <div class="logo d-flex justify-content-center align-items-center mb-4">
       <img src="./images/logo.svg" width="200px" height="100px" alt="">
     </div>
 
     <div class="login-form px-4">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
-            Nombre de usuario o email  
-          </label>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">
+          Nombre de usuario o email
+        </label>
 
-          <input type="text" class="form-control" id="username" autocomplete="off">
+        <input type="text" class="form-control" id="username" autocomplete="off">
 
-          <div id="usernameHelp" class="form-text">
-            
-          </div>
+        <div id="usernameHelp" class="form-text">
 
         </div>
 
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
-            Contraseña
-          </label>
+      </div>
 
-          <input type="password" class="form-control" id="password">
-          
-          <div id="passwordHelp" class="form-text">
-            
-          </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">
+          Contraseña
+        </label>
+
+        <input type="password" class="form-control" id="password">
+
+        <div id="passwordHelp" class="form-text">
+
+        </div>
+      </div>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+
+        <label class="form-check-label" for="exampleCheck1">Recordar contraseña</label>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-6">
+          <button id="btn-login" class="btn btn-primary" style="width: 100%;">
+            Iniciar sesión
+          </button>
         </div>
 
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-
-          <label class="form-check-label" for="exampleCheck1">Recordar contraseña</label>
+        <div class="col-md-6 d-flex justify-content-center align-items-center p-2">
+          ¿Necesitas ayuda?
         </div>
-        
-        <br>
 
-        <div class="row">
-          <div class="col-md-6">
-            <button id="btn-login" class="btn btn-primary" style="width: 100%;">
-              Iniciar sesión
-          </button>  
-          </div>
-          
-          <div class="col-md-6 d-flex justify-content-center align-items-center p-2">
-            ¿Necesitas ayuda?
-          </div>
-          
-          
+
       </div>
 
       <br>
       <br>
 
       <p class="text-center">
-        ¿No tienes cuenta? 
+        ¿No tienes cuenta?
         <b class="color-primary">
           <a href="">Regístrate</a>
         </b>
       </p>
 
-      </div>
     </div>
+  </div>
 
 
 
-    <script>
-        
-        /*
+  <script>
+    /*
         #################
         # HTML Elements #
         #################
         */
-        const btnLogin = document.getElementById("btn-login")
-        const usernameEl = document.getElementById("username")
-        const passwordEl = document.getElementById("password")
-        const usernameHelp = document.getElementById("usernameHelp")
-        const passwordHelp = document.getElementById("emailHelp")
+    const btnLogin = document.getElementById("btn-login")
+    const usernameEl = document.getElementById("username")
+    const passwordEl = document.getElementById("password")
+    const usernameHelp = document.getElementById("usernameHelp")
+    const passwordHelp = document.getElementById("passwordHelp")
 
 
-        /*
-        ###############
-        # Credentials #
-        ###############
-        */
-        const user = "compralotodo"
-        const password = "compralotodo*21"
+    /*
+    ###############
+    # Credentials #
+    ###############
+    */
+    const user = "compralotodo"
+    const password = "compralotodo*21"
 
-        /*
-        ##################
-        # Events Handles #
-        ##################
-        */
-        const login = e => {
-          
-          localStorage.setItem("session", true)
-          location.href = "index.html"
-          
-          e.preventDefault
-        }
+    /*
+    ##################
+    # Events Handles #
+    ##################
+    */
+    const login = e => {
 
-        const validateUsername = () => {
-          console.log(usernameEl.value)
+      if(usernameEl.value === user && passwordEl.value === password){
+        // Session
+        localStorage.setItem("session", true)
+        location.href = "index.html"
 
-          if(usernameEl.value === user){
-            usernameEl.classList.remove("input-fail")
-            usernameEl.classList.add("input-check")
+        e.preventDefault
+      }else if(!passwordEl.value && !usernameEl.value){
+        passwordHelp.innerHTML = `<p class="text-fail">Campo vacío</p>`
+        passwordEl.classList.add("input-fail")
 
-            usernameHelp.innerHTML = `<p class="text-check">Usuario correcto.</p>`
-          }else if(!usernameEl.value){
-            usernameEl.classList.remove("input-fail")
-            usernameEl.classList.remove("input-check")
+        usernameHelp.innerHTML = `<p class="text-fail">Campo vacío</p>`
+        usernameEl.classList.add("input-fail")
+      }else if(!passwordEl.value){
+        passwordHelp.innerHTML = `<p class="text-fail">Campo vacío</p>`
+        passwordEl.classList.add("input-fail")
+      }else if(passwordEl.value != password){
+        passwordHelp.innerHTML = `<p class="text-fail">Contraseña incorrecta</p>`
+        passwordEl.classList.add("input-fail")
+      }else if(!usernameEl.value){
+        usernameHelp.innerHTML = `<p class="text-fail">Campo vacío</p>`
+        usernameEl.classList.add("input-fail")
+      }else if(passwordEl.value != password && !usernameEl.value){
+        passwordHelp.innerHTML = `<p class="text-fail">Contraseña incorrecta</p>`
+        passwordEl.classList.add("input-fail")
 
-            usernameHelp.innerHTML = ""
-          }else{
-            usernameEl.classList.remove("input-check")
-            usernameEl.classList.add("input-fail")
+        usernameHelp.innerHTML = `<p class="text-fail">Campo vacío</p>`
+        usernameEl.classList.add("input-fail")
+      }
+    }
 
-            usernameHelp.innerHTML = `<p class="text-fail">Este usuario no existe.</p>`
-          }
-        }
+    const validateUsername = () => {
+      console.log(usernameEl.value)
 
-        /*
-        ##########
-        # Events #
-        ##########
-        */
+      if (usernameEl.value === user) {
+        usernameEl.classList.remove("input-fail")
+        usernameEl.classList.add("input-check")
 
-        btnLogin.addEventListener("click", login)
-        usernameEl.addEventListener("keyup", validateUsername)
+        usernameHelp.innerHTML = `<p class="text-check">Usuario correcto.</p>`
+      } else if (!usernameEl.value) {
+        usernameEl.classList.remove("input-fail")
+        usernameEl.classList.remove("input-check")
 
-    </script>
+        usernameHelp.innerHTML = ""
+      } else {
+        usernameEl.classList.remove("input-check")
+        usernameEl.classList.add("input-fail")
+
+        usernameHelp.innerHTML = `<p class="text-fail">Este usuario no existe.</p>`
+      }
+    }
+
+    /*
+    ##########
+    # Events #
+    ##########
+    */
+
+    btnLogin.addEventListener("click", login)
+    usernameEl.addEventListener("keyup", validateUsername)
+  </script>
 
 </body>
+
 </html>
