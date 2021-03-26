@@ -17,35 +17,99 @@
       }
     </script>
 </head>
+
 <body class="body-login">
     
-    <div class="card p-4">
-    <div class="login-form">
+    <div class="card py-4 px-5">
+
+      <div class="logo d-flex justify-content-center align-items-center mb-4">
+      <img src="./images/logo.svg" width="200px" height="100px" alt="">
+    </div>
+
+    <div class="login-form px-4">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <label for="exampleInputEmail1" class="form-label">
+            Nombre de usuario o email  
+          </label>
+
+          <input type="text" class="form-control">
+
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+
         </div>
+
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <label for="exampleInputPassword1" class="form-label">
+            Contraseña
+          </label>
+
           <input type="password" class="form-control" id="exampleInputPassword1">
+          
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
         </div>
+
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+
+          <label class="form-check-label" for="exampleCheck1">Recordar contraseña</label>
         </div>
         
-        <button id="btn-login" class="btn btn-primary">
-            Login
-        </button>
+        <br>
+
+        <div class="row">
+          <div class="col-6">
+            <button id="btn-login" class="btn btn-primary" style="width: 100%;">
+              Iniciar sesión
+          </button>  
+          </div>
+          
+          <div class="col-6 d-flex justify-content-center align-items-center">
+            ¿Necesitas ayuda?
+          </div>
+          
+          
+      </div>
+
+      <br>
+
+      <p>
+        ¿No tienes cuenta? 
+        <b class="color-primary">
+          <a href="">Regístrate</a>
+        </b>
+      </p>
+
       </div>
     </div>
 
 
 
     <script>
+        
+        /*
+        #################
+        # HTML Elements #
+        #################
+        */
         const btnLogin = document.getElementById("btn-login")
 
+        /*
+        ##################
+        # Events Handles #
+        ##################
+        */
+        const user = ""
+        const password = ""
+
+        /*
+        ##################
+        # Events Handles #
+        ##################
+        */
         const login = e => {
           
           localStorage.setItem("session", true)
