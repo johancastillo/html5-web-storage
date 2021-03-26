@@ -32,10 +32,10 @@
             Nombre de usuario o email  
           </label>
 
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" id="username" autocomplete="off">
 
-          <div id="emailHelp" class="form-text">
-            We'll never share your email with anyone else.
+          <div id="usernameHelp" class="form-text">
+            
           </div>
 
         </div>
@@ -45,10 +45,10 @@
             Contraseña
           </label>
 
-          <input type="password" class="form-control" id="exampleInputPassword1">
+          <input type="password" class="form-control" id="password">
           
-          <div id="emailHelp" class="form-text">
-            We'll never share your email with anyone else.
+          <div id="passwordHelp" class="form-text">
+            
           </div>
         </div>
 
@@ -61,13 +61,13 @@
         <br>
 
         <div class="row">
-          <div class="col-6">
+          <div class="col-md-6">
             <button id="btn-login" class="btn btn-primary" style="width: 100%;">
               Iniciar sesión
           </button>  
           </div>
           
-          <div class="col-6 d-flex justify-content-center align-items-center">
+          <div class="col-md-6 d-flex justify-content-center align-items-center p-2">
             ¿Necesitas ayuda?
           </div>
           
@@ -75,8 +75,9 @@
       </div>
 
       <br>
+      <br>
 
-      <p>
+      <p class="text-center">
         ¿No tienes cuenta? 
         <b class="color-primary">
           <a href="">Regístrate</a>
@@ -96,14 +97,19 @@
         #################
         */
         const btnLogin = document.getElementById("btn-login")
+        const usernameEl = document.getElementById("username")
+        const passwordEl = document.getElementById("password")
+        const usernameHelp = document.getElementById("usernameHelp")
+        const passwordHelp = document.getElementById("emailHelp")
+
 
         /*
-        ##################
-        # Events Handles #
-        ##################
+        ###############
+        # Credentials #
+        ###############
         */
-        const user = ""
-        const password = ""
+        const user = "compralotodo"
+        const password = "compralotodo*21"
 
         /*
         ##################
@@ -118,7 +124,35 @@
           e.preventDefault
         }
 
+        const validateUsername = () => {
+          console.log(usernameEl.value)
+
+          if(usernameEl.value === user){
+            usernameEl.classList.remove("input-fail")
+            usernameEl.classList.add("input-check")
+
+            usernameHelp.innerHTML = `<p class="text-check">Usuario correcto.</p>`
+          }else if(!usernameEl.value){
+            usernameEl.classList.remove("input-fail")
+            usernameEl.classList.remove("input-check")
+
+            usernameHelp.innerHTML = ""
+          }else{
+            usernameEl.classList.remove("input-check")
+            usernameEl.classList.add("input-fail")
+
+            usernameHelp.innerHTML = `<p class="text-fail">Este usuario no existe.</p>`
+          }
+        }
+
+        /*
+        ##########
+        # Events #
+        ##########
+        */
+
         btnLogin.addEventListener("click", login)
+        usernameEl.addEventListener("keyup", validateUsername)
 
     </script>
 
